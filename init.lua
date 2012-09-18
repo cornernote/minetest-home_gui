@@ -8,9 +8,6 @@ License: GPLv3
 
 ]]--
 
--- add inventory_plus page
-inventory_plus.pages["home_gui"] = "Home Pos"
-
 -- local api
 local home_gui = {}
 
@@ -71,6 +68,12 @@ home_gui.get_formspec = function(player)
 	end
 	return formspec
 end
+
+-- register_on_joinplayer
+minetest.register_on_joinplayer(function(player)
+	-- add inventory_plus page
+	inventory_plus.register_button(player,"home_gui","Home Pos")
+end)
 
 -- register_on_player_receive_fields
 minetest.register_on_player_receive_fields(function(player, formname, fields)
