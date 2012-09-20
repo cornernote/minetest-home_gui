@@ -51,7 +51,8 @@ end
 
 -- go_home 
 home_gui.go_home = function(player)
-	if homepos[player:get_player_name()]~=nil then
+	local pos = homepos[player:get_player_name()]
+	if pos~=nil then
 		player:setpos(pos)
 	end
 end
