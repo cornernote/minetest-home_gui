@@ -51,7 +51,9 @@ end
 
 -- go_home 
 home_gui.go_home = function(player)
-	player:setpos(homepos[player:get_player_name()])
+	if homepos[player:get_player_name()]~=nil then
+		player:setpos(pos)
+	end
 end
 
 -- get_formspec
