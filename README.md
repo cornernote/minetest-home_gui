@@ -13,7 +13,7 @@ Set home position and then go to it using the inventory screen.
 
 - **[Documentation](http://cornernote.github.io/minetest-home_gui)**
 - **[GitHub Project](https://github.com/cornernote/minetest-home_gui)**
-- **[Minetest Forum](http://minetest.net/forum/viewtopic.php?id=3101)**
+- **[Minetest Forum](https://forum.minetest.net/viewtopic.php?id=3101)**
 
 
 ## Support
