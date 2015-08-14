@@ -1,5 +1,14 @@
 # Home GUI for Minetest
 
+[![home](https://img.shields.io/badge/home_gui-home-blue.svg?style=flat-square)](http://cornernote.github.io/minetest-home_gui/)
+[![download](https://img.shields.io/github/tag/cornernote/minetest-home_gui.svg?style=flat-square&label=release)](https://github.com/cornernote/minetest-home_gui/archive/master.zip)
+[![git](https://img.shields.io/badge/git-project-green.svg?style=flat-square)](https://github.com/cornernote/minetest-home_gui)
+[![forum](https://img.shields.io/badge/minetest-mod-green.svg?style=flat-square)](http://forum.minetest.net/viewtopic.php?t=3101)
+[![bower](https://img.shields.io/badge/bower-mod-green.svg?style=flat-square)](https://minetest-bower.herokuapp.com/mods/home_gui)
+
+
+## Description
+
 Set home position and then go to it using the inventory screen.
 
 
@@ -9,11 +18,13 @@ Set home position and then go to it using the inventory screen.
 - Player can jump to home position using their inventory.
 
 
-## Resources
+## Project Resources
 
-- **[Documentation](http://cornernote.github.io/minetest-home_gui)**
-- **[GitHub Project](https://github.com/cornernote/minetest-home_gui)**
-- **[Minetest Forum](https://forum.minetest.net/viewtopic.php?id=3101)**
+* [Home](http://cornernote.github.io/minetest-home_gui/)
+* [Download](https://github.com/cornernote/minetest-home_gui/archive/master.zip)
+* [Project](https://github.com/cornernote/minetest-home_gui)
+* [Forum](http://forum.minetest.net/viewtopic.php?t=3101)
+* [Bower](https://minetest-bower.herokuapp.com/mods/home_gui)
 
 
 ## Support
