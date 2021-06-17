@@ -11,33 +11,41 @@ License: BSD-3-Clause https://raw.github.com/cornernote/minetest-home_gui/master
 -- local api
 local home_gui = {}
 
+local use_sethome = false
+
 -- filename
 home_gui.filename = minetest.get_worldpath()..'/home_gui'
 
 -- load_home
 local homepos = {}
 local load_home = function()
-    local input = io.open(home_gui.filename..".home", "r")
-    if input then
-        while true do
-            local x = input:read("*n")
-            if x == nil then
-                break
-            end
-            local y = input:read("*n")
-            local z = input:read("*n")
-            local name = input:read("*l")
-            homepos[name:sub(2)] = {x = x, y = y, z = z}
-        end
-        io.close(input)
-    else
-        homepos = {}
-    end
+		local input = io.open(home_gui.filename..".home", "r")
+		if input then
+				while true do
+						local x = input:read("*n")
+						if x == nil then
+								break
+						end
+						local y = input:read("*n")
+						local z = input:read("*n")
+						local name = input:read("*l")
+						homepos[name:sub(2)] = {x = x, y = y, z = z}
+				end
+				io.close(input)
+		else
+				homepos = {}
+				use_sethome = core.global_exists("sethome")
+		end
 end
 load_home() -- run it now
 
 -- set_home
 home_gui.set_home = function(player, pos)
+	if use_sethome then
+		sethome.set(player:get_player_name(), pos)
+		return
+	end
+
 	homepos[player:get_player_name()] = pos
 	-- save the home data from the table to the file
 	local output = io.open(home_gui.filename..".home", "w")
@@ -49,8 +57,13 @@ home_gui.set_home = function(player, pos)
 	io.close(output)
 end
 
--- go_home 
+-- go_home
 home_gui.go_home = function(player)
+	if use_sethome then
+		sethome.go(player:get_player_name())
+		return
+	end
+
 	local pos = homepos[player:get_player_name()]
 	if pos~=nil then
 		player:set_pos(pos)
@@ -74,7 +87,12 @@ home_gui.get_formspec = function(player)
 		.."button[0,0;2,0.5;main;Back]"
 		.."button_exit[0,1;2,0.5;home_gui_set;Set Home]"
 		.."button_exit[2,1;2,0.5;home_gui_go;Go Home]"
-	local home = homepos[player:get_player_name()]
+	local home = nil
+	if use_sethome then
+		home = sethome.get(player:get_player_name())
+	else
+		home = homepos[player:get_player_name()]
+	end
 	if home ~= nil then
 		formspec = formspec
 			.."label[2,-0.2;Home set to:]"
